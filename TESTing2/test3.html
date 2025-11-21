@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipografía Fluida con Clamp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Sistema de tipografía fluida */
+        h1 {
+            font-size: clamp(2rem, 6vw, 4rem);    /* 32px - escalable - 64px */
+            line-height: 1.2;
+            margin-bottom: clamp(1rem, 3vw, 2rem);
+        }
+        
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);  /* 24px - escalable - 40px */
+            margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
+        }
+        
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 2rem);    /* 20px - escalable - 32px */
+            margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+        }
+        
+        p {
+            font-size: clamp(1rem, 2vw, 1.25rem);    /* 16px - escalable - 20px */
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            max-width: 70ch;                        /* Líneas legibles */
+        }
+        
+        /* Container fluido */
+        .container {
+            width: clamp(320px, 90%, 1200px);      /* Responsive width */
+            margin: 0 auto;
+            padding: clamp(1rem, 5vw, 3rem);     /* Responsive padding */
+        }
+        
+        /* Cards con dimensiones fluidas */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 30%, 400px), 1fr));
+            gap: clamp(1rem, 3vw, 2rem);
+            margin: clamp(2rem, 5vw, 4rem) 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: clamp(8px, 1vw, 16px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: clamp(1rem, 3vw, 2rem);
+            height: clamp(200px, 40vw, 300px);
+        }
+        
+        /* Botones adaptativos */
+        .btn {
+            padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
+            font-size: clamp(0.875rem, 2vw, 1.125rem);
+            border-radius: clamp(4px, 0.5vw, 8px);
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+        }
+        
+        /* Espaciado de secciones */
+        section {
+            margin-bottom: clamp(3rem, 8vw, 6rem);
+        }
+        
+        /* Hero section responsive */
+        .hero {
+            text-align: center;
+            padding: clamp(4rem, 12vw, 8rem) 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);    /* Título hero más grande */
+        }
+        
+        /* Navegación adaptive */
+        nav {
+            padding: clamp(0.5rem, 2vw, 1rem) 0;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 3vw, 2rem);
+        }
+        
+        .logo {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: bold;
+        }
+        
+        /* Media query para casos extremos */
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Logo Fluido</div>
+            <button class="btn">Botón Adaptativo</button>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Título Hero Fluido</h1>
+            <p>Esta tipografía se escala perfectamente en cualquier dispositivo usando clamp().</p>
+            <button class="btn" style="margin-top: 2rem;">Call to Action</button>
+        </div>
+    </section>
+    
+    <section class="container">
+        <h2>Sistema de Tipografía Fluida</h2>
+        <p>
+            Este sistema utiliza clamp() para crear una tipografía que se adapta 
+            automáticamente al tamaño de la pantalla, manteniendo siempre la 
+            legibilidad y proporción adecuada.
+        </p>
+        
+        <h3>Ventajas del Clamp</h3>
+        <p>
+            La función clamp() nos permite definir valores mínimos y máximos, 
+            evitando que el texto sea demasiado pequeño en móviles o demasiado 
+            grande en pantallas gigantes.
+        </p>
+        
+        <div class="card-grid">
+            <div class="card">
+                <h3>Card Fluida 1</h3>
+                <p>Las dimensiones de estas cards se adaptan automáticamente.</p>
+                <button class="btn">Acción</button>
+            </div>
+            
+            <div class="card">
+                <h3>Card Fluida 2</h3>
+                <p>Sin media queries complejas, solo usando clamp().</p>
+                <button class="btn">Acción</button>
+            </div>
+            
+            <div class="card">
+                <h3>Card Fluida 3</h3>
+                <p>Responsive design simplificado y mantenible.</p>
+                <button class="btn">Acción</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
