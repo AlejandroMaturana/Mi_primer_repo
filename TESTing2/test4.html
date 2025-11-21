@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clear Examples</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .caja {
+            width: 150px;
+            height: 100px;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 4px;
+            color: white;
+            text-align: center;
+            line-height: 60px;
+            font-weight: bold;
+        }
+        
+        .float-left {
+            float: left;
+            background-color: #1619FF;
+        }
+        
+        .float-right {
+            float: right;
+            background-color: #A9F00F;
+            color: black;
+        }
+        
+        .no-clear {
+            background-color: #dc3545;
+        }
+        
+        .clear-left {
+            clear: left;
+            background-color: #fd7e14;
+        }
+        
+        .clear-right {
+            clear: right;
+            background-color: #6f42c1;
+        }
+        
+        .clear-both {
+            clear: both;
+            background-color: #20c997;
+        }
+        
+        .seccion {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+        }
+        
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplos de la Propiedad Clear</h1>
+    
+    <div class="seccion">
+        <h2>Sin Clear</h2>
+        <div class="caja float-left">Float Left</div>
+        <div class="caja float-right">Float Right</div>
+        <div class="caja no-clear">Sin Clear</div>
+        <p>La caja roja se coloca en el espacio disponible entre los elementos flotados.</p>
+    </div>
+    
+    <div class="seccion clearfix">
+        <h2>Clear: Left</h2>
+        <div class="caja float-left">Float Left</div>
+        <div class="caja float-right">Float Right</div>
+        <div class="caja clear-left">Clear Left</div>
+        <p>La caja naranja no permite floats a su izquierda, por lo que se mueve debajo del elemento flotado izquierdo.</p>
+    </div>
+    
+    <div class="seccion clearfix">
+        <h2>Clear: Right</h2>
+        <div class="caja float-left">Float Left</div>
+        <div class="caja float-right">Float Right</div>
+        <div class="caja clear-right">Clear Right</div>
+        <p>La caja morada no permite floats a su derecha, moviéndose debajo del elemento flotado derecho.</p>
+    </div>
+    
+    <div class="seccion clearfix">
+        <h2>Clear: Both</h2>
+        <div class="caja float-left">Float Left</div>
+        <div class="caja float-right">Float Right</div>
+        <div class="caja clear-both">Clear Both</div>
+        <p>La caja verde no permite floats en ningún lado, moviéndose completamente debajo de todos los elementos flotados.</p>
+    </div>
+</body>
+</html>

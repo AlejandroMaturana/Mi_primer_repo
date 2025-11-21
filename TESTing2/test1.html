@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layout Playground</title>
+
+<style>
+
+/* -----------------------
+   RESET BÁSICO
+------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* -----------------------
+   HEADER + NAV (FLEX)
+------------------------*/
+header {
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+}
+nav {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+nav a {
+    color: #e2e8f0;
+    text-decoration: none;
+}
+nav a:hover {
+    color: white;
+}
+
+/* -----------------------
+   HERO (POSITION)
+------------------------*/
+.hero {
+    position: relative;
+    background: #1e293b;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero .tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: crimson;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+/* -----------------------
+   LAYOUT PRINCIPAL (GRID)
+------------------------*/
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Aside */
+aside {
+    background: #f1f5f9;
+    padding: 20px;
+    border-left: 4px solid #475569;
+}
+
+/* Article (GRID INTERNO) */
+article {
+    background: #e2e8f0;
+    padding: 20px;
+}
+
+.grid-cards {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+.grid-cards div {
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+}
+
+/* -----------------------
+   FOOTER (STICKY)
+------------------------*/
+footer {
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+}
+
+/* -----------------------
+   MEDIA QUERIES
+------------------------*/
+
+/* Tablet */
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: 250px 1fr;
+    }
+
+    .grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .grid-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>Layout Playground</h1>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Grid</a>
+        <a href="#">Flex</a>
+        <a href="#">Medias</a>
+        <a href="#">Contacto</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="tag">Position: absolute</div>
+    <h2>Domina CSS Layout</h2>
+    <p>Flex • Grid • Positioning • Media Queries • Flow</p>
+</section>
+
+<!-- MAIN -->
+<main>
+
+    <!-- ASIDE -->
+    <aside>
+        <h3>Aside</h3>
+        <p>Este bloque usa el flujo natural del documento, y forma parte del grid principal.</p>
+    </aside>
+
+    <!-- ARTICLE -->
+    <article>
+        <h3>Artículo demonstrativo</h3>
+        <p>
+            Este artículo contiene un grid interno para las tarjetas.  
+            Observa cómo cambia la cantidad de columnas según el tamaño de pantalla.
+        </p>
+
+        <div class="grid-cards">
+            <div>Card 1</div>
+            <div>Card 2</div>
+            <div>Card 3</div>
+            <div>Card 4</div>
+            <div>Card 5</div>
+            <div>Card 6</div>
+        </div>
+    </article>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    Footer sticky — siempre visible al final
+</footer>
+
+</body>
+</html>
